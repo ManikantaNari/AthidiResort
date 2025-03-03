@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athidhi Resort Preview</title>
+    <style>
+        :root {
+            --primary: #0e7490;
+            --secondary: #4a7c59;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* Top tabs */
+        .top-tabs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary);
+            padding: 0 5%;
+            z-index: 1001;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .top-tabs ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .top-tabs ul li {
+            margin: 0;
+        }
+        
+        .top-tabs ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .top-tabs ul li a:hover,
+        .top-tabs ul li a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Transparent header */
+        header {
+            background-color: rgba(255, 255, 255, 0.6);
+            position: fixed;
+            top: 40px;
+            width: 100%;
+            z-index: 1000;
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(8px);
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.2rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 0.8rem;
+            border-radius: 5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+            background-color: rgba(14, 116, 144, 0.1);
+        }
+        
+        nav ul li a.active {
+            color: var(--primary);
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .book-now-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-left: 1.5rem;
+            display: inline-block;
+        }
+        
+        .book-now-btn:hover {
+            background-color: #0c637a;
+        }
+        
+        /* Hero section */
+        .hero {
+            height: 500px;
+            width: 100%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/api/placeholder/1200/800');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-top: 120px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .hero-btn {
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .primary-btn {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .secondary-btn {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+
+        .secondary-btn:hover {
+            background-color: white;
+            color: var(--dark);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .book-now-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-left: 2rem;
+            display: inline-block;
+        }
+        
+        .book-now-btn:hover {
+            background-color: #0c637a;
+        }
+        
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/api/placeholder/1200/800') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .hero-btn {
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .primary-btn {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .primary-btn:hover {
+            background-color: #0c637a;
+        }
+        
+        .secondary-btn {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .secondary-btn:hover {
+            background-color: white;
+            color: var(--dark);
+        }
+        
+        .section {
+            padding: 5rem 10%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #64748b;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-img {
+            height: 200px;
+            width: 100%;
+            background-color: #ddd;
+        }
+        
+        .feature-content {
+            padding: 1.5rem;
+        }
+        
+        .feature-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .feature-content p {
+            margin-bottom: 1rem;
+            color: #64748b;
+        }
+        
+        .tab-navigation {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #e2e8f0;
+            padding: 0.3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tab-item {
+            padding: 0.8rem 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+            margin: 0 0.15rem;
+            flex: 1;
+        }
+        
+        .tab-item.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .tab-item:hover:not(.active) {
+            background-color: #cbd5e1;
+        }
+        
+        .book-widget {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .input-group input, .input-group select {
+            padding: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .book-widget button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1.5rem;
+        }
+        
+        .book-widget button:hover {
+            background-color: #0c637a;
+        }
+        
+        .testimonials {
+            background-color: #f1f5f9;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 1rem;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #ddd;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            margin-right: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary);
+        }
+        
+        .contact-form div {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-form button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-form button:hover {
+            background-color: #0c637a;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 10% 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-col ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+                margin-left: 0;
+            }
+            
+            .book-now-btn {
+                margin-left: 0;
+                margin-top: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+            
+            .book-widget {
+                padding: 1.5rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .tab-navigation {
+                flex-wrap: wrap;
+            }
+            
+            .tab-item {
+                flex: 1 0 calc(50% - 0.3rem);
+                margin-bottom: 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top tabs navigation -->
+    <div class="top-tabs">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Resort</a></li>
+            <li><a href="#">Swimming Pool</a></li>
+            <li><a href="#">Amenities</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Transparent header -->
+    <header>
+        <div class="logo">Athidhi Resort</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">About</a></li>
+                <li><a href="#">Rooms</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Offers</a></li>
+            </ul>
+            <a href="#" class="book-now-btn">Book Now</a>
+        </nav>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Experience Luxury & Relaxation</h1>
+            <p>Escape to Athidhi resort paradise and enjoy premium accommodations and our world-class swimming pool.</p>
+            <div class="hero-btns">
+                <a href="#" class="hero-btn primary-btn">Book Your Stay</a>
+                <a href="#" class="hero-btn secondary-btn">Explore Pool Services</a>
+            </div>
+        </div>
+    </section>
+    <section class="section booking">
+        <div class="tab-navigation">
+            <div class="tab-item active">Resort Stay</div>
+            <div class="tab-item">Pool Booking</div>
+            <div class="tab-item">Events</div>
+            <div class="tab-item">Spa Services</div>
+        </div>
+        
+        <div class="book-widget">
+            <div class="input-group">
+                <label for="check-in">Check In</label>
+                <input type="date" id="check-in">
+            </div>
+            <div class="input-group">
+                <label for="check-out">Check Out</label>
+                <input type="date" id="check-out">
+            </div>
+            <div class="input-group">
+                <label for="guests">Guests</label>
+                <select id="guests">
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5+">5+ Guests</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="room-type">Accommodation</label>
+                <select id="room-type">
+                    <option value="standard">Standard Room</option>
+                    <option value="deluxe">Deluxe Room</option>
+                    <option value="suite">Suite</option>
+                    <option value="villa">Private Villa</option>
+                </select>
+            </div>
+            <button>Check Availability</button>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>Our Premium Features</h2>
+            <p>Discover the exceptional amenities and services that make Athidhi resort and swimming pool the perfect destination for your getaway.</p>
+        </div>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-img" style="background: url('/api/placeholder/400/300') center/cover no-repeat;"></div>
+                <div class="feature-content">
+                    <h3>Luxury Accommodations</h3>
+                    <p>Experience the ultimate comfort in our beautifully designed rooms and villas with premium amenities.</p>
+                    <a href="#" class="book-now-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-img" style="background: url('/api/placeholder/400/300') center/cover no-repeat;"></div>
+                <div class="feature-content">
+                    <h3>Olympic-Size Pool</h3>
+                    <p>Our commercial swimming pool is perfect for recreational swimming, competitions, and private events.</p>
+                    <a href="#" class="book-now-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-img" style="background: url('/api/placeholder/400/300') center/cover no-repeat;"></div>
+                <div class="feature-content">
+                    <h3>Event Spaces</h3>
+                    <p>Host unforgettable events in our versatile venues with professional planning services.</p>
+                    <a href="#" class="book-now-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section testimonials">
+        <div class="section-title">
+            <h2>Guest Experiences</h2>
+            <p>Hear what our satisfied guests have to say about their stay at Athidhi resort and swimming pool.</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"This resort exceeded all our expectations. The rooms were luxurious, the swimming pool was immaculate, and the staff was incredibly attentive. Our family event was absolutely perfect!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img"></div>
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <p>Family Celebration</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"We hosted our corporate retreat here and it was a tremendous success. The swimming pool facilities are world-class, and the accommodations were perfect for our team of 20 people."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img"></div>
+                    <div class="author-info">
+                        <h4>Michael Chen</h4>
+                        <p>Corporate Event</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"My wedding at Athidhi Resort was a dream come true. The poolside ceremony was breathtaking, and our guests are still talking about how beautiful everything was!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img"></div>
+                    <div class="author-info">
+                        <h4>Emma & David</h4>
+                        <p>Wedding Celebration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>Resort Gallery</h2>
+            <p>Take a visual tour of our beautiful resort and swimming pool facilities.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" style="background: url('/api/placeholder/300/300') center/cover no-repeat;"></div>
+            <div class="gallery-item" style="background: url('/api/placeholder/300/300') center/cover no-repeat;"></div>
+            <div class="gallery-item" style="background: url('/api/placeholder/300/300') center/cover no-repeat;"></div>
+            <div class="gallery-item" style="background: url('/api/placeholder/300/300') center/cover no-repeat;"></div>
+            <div class="gallery-item" style="background: url('/api/placeholder/300/300') center/cover no-repeat;"></div>
+            <div class="gallery-item" style="background: url('/api/placeholder/300/300') center/cover no-repeat;"></div>
+            <div class="gallery-item" style="background: url('/api/placeholder/300/300') center/cover no-repeat;"></div>
+            <div class="gallery-item" style="background: url('/api/placeholder/300/300') center/cover no-repeat;"></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Have questions or ready to book? Get in touch with our friendly team.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Resort Information</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>123 Paradise Lane, Scenic City, SC 12345</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>+1 (555) 123-4567</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>info@athidhiresort.com</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <p>Reception: Open 24/7</p>
+                            <p>Swimming Pool: 6:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">FB</a>
+                    <a href="#" class="social-icon">IG</a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div>
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+                    <div>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+                    <div>
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" placeholder="What is this regarding?">
+                    </div>
+                    <div>
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Type your message here..."></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Athidhi Resort</h4>
+                <p>Luxury accommodations and premium swimming pool facilities for the perfect getaway experience.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">FB</a>
+                    <a href="#" class="social-icon">IG</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Accommodations</a></li>
+                    <li><a href="#">Swimming Pool</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#">Resort Stays</a></li>
+                    <li><a href="#">Pool Rentals</a></li>
+                    <li><a href="#">Event Hosting</a></li>
+                    <li><a href="#">Corporate Retreats</a></li>
+                    <li><a href="#">Wedding Packages</a></li>
+                    <li><a href="#">Swimming Lessons</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Subscribe to our newsletter for special offers and updates.</p>
+                <form>
+                    <input type="email" placeholder="Your email address" style="width: 100%; padding: 0.8rem; margin-top: 1rem; border: none; border-radius: 5px;">
+                    <button style="width: 100%; margin-top: 1rem; background-color: var(--accent); color: var(--dark); border: none; padding: 0.8rem; border-radius: 5px; font-weight: 600; cursor: pointer;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Athidhi Resort & Swimming Pool. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab-item');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // In a real implementation, you would show/hide corresponding content here
+                });
+            });
+        });
+    </script>
+</body>
+</html>
