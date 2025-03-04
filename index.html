@@ -7,28 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Top tabs navigation -->
-    <div class="top-tabs">
-        <ul>
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">Resort</a></li>
-            <li><a href="#">Swimming Pool</a></li>
-            <li><a href="#">Amenities</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </div>
-
     <!-- Transparent header -->
     <header>
         <div class="logo">Athidhi Resort</div>
         <nav>
             <ul>
-                <li><a href="#" class="active">About</a></li>
-                <li><a href="#">Rooms</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Offers</a></li>
+                <li><a href="#" id="resort-link" class="active">Resort</a></li>
+                <li><a href="#" id="swimming-pool-link">Swimming Pool</a></li>
+                <li><a href="#" id="service-link">Services</a></li>
+                <li><a href="#" id="event-link">Events</a></li>
+                <li><a href="#" id="contact-link">Contact</a></li>
+                <li><a href="#" id="offer-link">Offers</a></li>
             </ul>
             <a href="#" class="book-now-btn">Book Now</a>
         </nav>
@@ -41,18 +30,17 @@
             <p>Escape to Athidhi resort paradise and enjoy premium accommodations and our world-class swimming pool.</p>
             <div class="hero-btns">
                 <a href="#" class="hero-btn primary-btn">Book Your Stay</a>
-                <a href="#" class="hero-btn secondary-btn">Explore Pool Services</a>
+                <a href="#" id="explore-service-link" class="hero-btn secondary-btn">Explore Pool Services</a>
             </div>
         </div>
     </section>
 
     <!-- Booking section -->
-    <section class="section booking">
+    <section id="booking-section" class="section booking">
         <div class="tab-navigation">
-            <div class="tab-item active">Resort Stay</div>
-            <div class="tab-item">Pool Booking</div>
-            <div class="tab-item">Events</div>
-            <div class="tab-item">Spa Services</div>
+            <div id="resort-booking-tab" class="tab-item active">Resort Stay</div>
+            <div id="pool-booking-tab" class="tab-item">Pool Booking</div>
+            <div id="events-booking-tab" class="tab-item">Events</div>
         </div>
         
         <div class="book-widget">
@@ -88,7 +76,7 @@
     </section>
 
     <!-- Features section -->
-    <section class="section">
+    <section id="features-section" class="section">
         <div class="section-title">
             <h2>Our Premium Features</h2>
             <p>Discover the exceptional amenities and services that make Athidhi resort and swimming pool the perfect destination for your getaway.</p>
@@ -186,7 +174,7 @@
     </section>
 
     <!-- Contact section -->
-    <section class="section">
+    <section id ="contact-section" class="section">
         <div class="section-title">
             <h2>Contact Us</h2>
             <p>Have questions or ready to book? Get in touch with our friendly team.</p>
@@ -197,11 +185,11 @@
                 <div class="contact-details">
                     <div class="contact-item">
                         <div class="contact-icon">📍</div>
-                        <div>123 Paradise Lane, Scenic City, SC 12345</div>
+                        <div>Athidi Resort, 5C5P+9G9, Patel Nagar, Nakrekal, Telangana 508211, India</div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">📞</div>
-                        <div>+1 (555) 123-4567</div>
+                        <div>+91 77308-32757</div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">✉️</div>
@@ -246,7 +234,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer id = "footer-section" class="footer">
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Athidhi Resort</h4>
@@ -283,12 +271,13 @@
                 <h4>Newsletter</h4>
                 <p>Subscribe to our newsletter for special offers and updates.</p>
                 <form>
-                    <input type="email" placeholder="Your email address" style="width: 100%; padding: 0.8rem; margin-top: 1rem; border: none; border-radius: 5px;">
+                    <input id="email-address" placeholder="Enter your email address" style="width: 100%; padding: 0.8rem; margin-top: 1rem; border: none; border-radius: 5px;">
                     <button style="width: 100%; margin-top: 1rem; background-color: var(--accent); color: var(--dark); border: none; padding: 0.8rem; border-radius: 5px; font-weight: 600; cursor: pointer;">Subscribe</button>
                 </form>
             </div>
         </div>
         <div class="copyright">
+            <h4>"Get in touch at <a href="mailto:manikanta.nari@outlook.com">manikanta.nari@outlook.com</a>  to create a stunning and unique website that stands out!"</h4>
             <p>&copy; 2025 Athidhi Resort & Swimming Pool. All Rights Reserved.</p>
         </div>
     </footer>

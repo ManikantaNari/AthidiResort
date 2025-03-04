@@ -19,57 +19,20 @@ body {
     overflow-x: hidden;
 }
 
-/* Top tabs */
-.top-tabs {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--primary);
-    padding: 0 5%;
-    z-index: 1001;
-    display: flex;
-    justify-content: center;
-}
-
-.top-tabs ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-}
-
-.top-tabs ul li {
-    margin: 0;
-}
-
-.top-tabs ul li a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 0.6rem 1.2rem;
-    font-weight: 500;
-    transition: all 0.3s;
-    font-size: 0.9rem;
-}
-
-.top-tabs ul li a:hover,
-.top-tabs ul li a.active {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
 /* Transparent header */
 header {
     background-color: rgba(255, 255, 255, 0.6);
     position: fixed;
-    top: 40px;
-    width: 100%;
-    z-index: 1000;
+    top: 20px;
+    left: 1%;
+    right: 1%;
     padding: 0.8rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(219, 114, 114, 0.05);
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
 }
 
 .logo {
@@ -140,7 +103,6 @@ nav ul li a.active {
     justify-content: center;
     color: white;
     text-align: center;
-    margin-top: 120px;
 }
 
 .hero-content {
@@ -585,7 +547,7 @@ nav ul li a:hover {
 footer {
     background-color: var(--dark);
     color: white;
-    padding: 3rem 10% 1rem;
+    padding: 3rem 10% 10rem;
 }
 
 .footer-grid {
@@ -624,6 +586,13 @@ footer {
     padding-top: 2rem;
     border-top: 1px solid #334155;
     color: #94a3b8;
+}
+
+.copyright a {
+    font-size: 1.5rem;
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 @media (max-width: 768px) {
