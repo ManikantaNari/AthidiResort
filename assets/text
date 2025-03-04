@@ -1,0 +1,22 @@
+assets/
+├── images/
+│   ├── hero-background.jpg
+│   ├── features/
+│   │   ├── accommodation.jpg
+│   │   ├── pool.jpg
+│   │   └── events.jpg
+│   ├── gallery/
+│   │   ├── image1.jpg
+│   │   ├── image2.jpg
+│   │   └── ...
+│   └── testimonials/
+│       ├── sarah.jpg
+│       ├── michael.jpg
+│       └── emma-david.jpg
+├── icons/
+│   ├── favicon.ico
+│   ├── logo.svg
+│   └── social-icons/
+│       ├── facebook.svg
+│       └── instagram.svg
+└── README.md

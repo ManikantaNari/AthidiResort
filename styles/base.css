@@ -1,0 +1,21 @@
+/* styles/base.css */
+:root {
+    --primary: #0e7490;
+    --secondary: #4a7c59;
+    --accent: #f59e0b;
+    --light: #f8fafc;
+    --dark: #1e293b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    overflow-x: hidden;
+}
