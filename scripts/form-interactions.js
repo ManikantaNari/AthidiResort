@@ -1,5 +1,5 @@
 // scripts/form-interactions.js
-document.addEventListener("DOMContentLoaded", function () {
+export function initFormInteractions() {
     const contactForm = document.querySelector(".contact-form form");
     const newsletterForm = document.querySelector("footer form");
 
@@ -80,4 +80,4 @@ document.addEventListener("DOMContentLoaded", function () {
             emailInput.value = '';
         });
     }
-});
+}

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Athidhi Resort</title>
-    
+
     <!-- Modular CSS -->
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/header.css">
@@ -19,6 +20,7 @@
     <script type="module" src="scripts/main.js"></script>
     <!-- <script src="UnUsedBackup/script.js"></script> -->
 </head>
+
 <body>
     <!-- Transparent header -->
     <header>
@@ -38,6 +40,14 @@
 
     <!-- Hero section -->
     <section class="hero">
+        <video autoplay muted loop id="heroVideo">
+            <source src="https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/VID-20250304-WA0001.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+
+        <!-- Overlay for transparent shade -->
+        <div class="overlay"></div>
+
         <div class="hero-content">
             <h1>Experience Luxury & Relaxation</h1>
             <p>Escape to Athidhi resort paradise and enjoy premium accommodations and our world-class swimming pool.</p>
@@ -55,7 +65,7 @@
             <div id="pool-booking-tab" class="tab-item">Pool Booking</div>
             <div id="events-booking-tab" class="tab-item">Events</div>
         </div>
-        
+
         <div class="book-widget">
             <div class="input-group">
                 <label for="check-in">Check In</label>
@@ -92,27 +102,36 @@
     <section id="features-section" class="section">
         <div class="section-title">
             <h2>Our Premium Features</h2>
-            <p>Discover the exceptional amenities and services that make Athidhi resort and swimming pool the perfect destination for your getaway.</p>
+            <p>Discover the exceptional amenities and services that make Athidhi resort and swimming pool the perfect
+                destination for your getaway.</p>
         </div>
         <div class="features">
             <div class="feature-card">
-                <div class="feature-img" style="background: url('https://ecotope.com/wp-content/uploads/2016/11/600x400-placeholder.png') center/cover no-repeat;"></div>
+                <div class="feature-img"
+                    style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0011.jpg') center/cover no-repeat;">
+                </div>
                 <div class="feature-content">
                     <h3>Luxury Accommodations</h3>
-                    <p>Experience the ultimate comfort in our beautifully designed rooms and villas with premium amenities.</p>
+                    <p>Experience the ultimate comfort in our beautifully designed rooms and villas with premium
+                        amenities.</p>
                     <a href="#" class="book-now-btn">Learn More</a>
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-img" style="background: url('https://ecotope.com/wp-content/uploads/2016/11/600x400-placeholder.png') center/cover no-repeat;"></div>
+                <div class="feature-img"
+                    style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0006.jpg') center/cover no-repeat;">
+                </div>
                 <div class="feature-content">
                     <h3>Olympic-Size Pool</h3>
-                    <p>Our commercial swimming pool is perfect for recreational swimming, competitions, and private events.</p>
+                    <p>Our commercial swimming pool is perfect for recreational swimming, competitions, and private
+                        events.</p>
                     <a href="#" class="book-now-btn">Learn More</a>
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-img" style="background: url('https://ecotope.com/wp-content/uploads/2016/11/600x400-placeholder.png') center/cover no-repeat;"></div>
+                <div class="feature-img"
+                    style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0002.jpg') center/cover no-repeat;">
+                </div>
                 <div class="feature-content">
                     <h3>Event Spaces</h3>
                     <p>Host unforgettable events in our versatile venues with professional planning services.</p>
@@ -131,36 +150,40 @@
         <div class="testimonial-grid">
             <div class="testimonial-card">
                 <div class="testimonial-content">
-                    <p>"This resort exceeded all our expectations. The rooms were luxurious, the swimming pool was immaculate, and the staff was incredibly attentive. Our family event was absolutely perfect!"</p>
+                    <p>"This resort exceeded all our expectations. The rooms were luxurious, the swimming pool was
+                        immaculate, and the staff was incredibly attentive. Our family event was absolutely perfect!"
+                    </p>
                 </div>
                 <div class="testimonial-author">
                     <div class="author-img"></div>
                     <div class="author-info">
-                        <h4>Sarah Johnson</h4>
+                        <h4>Rising Stars</h4>
                         <p>Family Celebration</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-content">
-                    <p>"We hosted our corporate retreat here and it was a tremendous success. The swimming pool facilities are world-class, and the accommodations were perfect for our team of 20 people."</p>
+                    <p>"We hosted our corporate retreat here and it was a tremendous success. The swimming pool
+                        facilities are world-class, and the accommodations were perfect for our team of 20 people."</p>
                 </div>
                 <div class="testimonial-author">
                     <div class="author-img"></div>
                     <div class="author-info">
-                        <h4>Michael Chen</h4>
+                        <h4>Manikanta Nari</h4>
                         <p>Corporate Event</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-content">
-                    <p>"My wedding at Athidhi Resort was a dream come true. The poolside ceremony was breathtaking, and our guests are still talking about how beautiful everything was!"</p>
+                    <p>"My wedding at Athidhi Resort was a dream come true. The poolside ceremony was breathtaking, and
+                        our guests are still talking about how beautiful everything was!"</p>
                 </div>
                 <div class="testimonial-author">
                     <div class="author-img"></div>
                     <div class="author-info">
-                        <h4>Emma & David</h4>
+                        <h4>Gajjala Saikiran & Family</h4>
                         <p>Wedding Celebration</p>
                     </div>
                 </div>
@@ -174,20 +197,11 @@
             <h2>Resort Gallery</h2>
             <p>Take a visual tour of our beautiful resort and swimming pool facilities.</p>
         </div>
-        <div class="gallery-grid">
-            <div class="gallery-item" style="background: url('https://ecotope.com/wp-content/uploads/2016/11/600x400-placeholder.png') center/cover no-repeat;"></div>
-            <div class="gallery-item" style="background: url('https://ecotope.com/wp-content/uploads/2016/11/600x400-placeholder.png') center/cover no-repeat;"></div>
-            <div class="gallery-item" style="background: url('https://ecotope.com/wp-content/uploads/2016/11/600x400-placeholder.png') center/cover no-repeat;"></div>
-            <div class="gallery-item" style="background: url('https://ecotope.com/wp-content/uploads/2016/11/600x400-placeholder.png') center/cover no-repeat;"></div>
-            <div class="gallery-item" style="background: url('https://ecotope.com/wp-content/uploads/2016/11/600x400-placeholder.png') center/cover no-repeat;"></div>
-            <div class="gallery-item" style="background: url('https://ecotope.com/wp-content/uploads/2016/11/600x400-placeholder.png') center/cover no-repeat;"></div>
-            <div class="gallery-item" style="background: url('https://ecotope.com/wp-content/uploads/2016/11/600x400-placeholder.png') center/cover no-repeat;"></div>
-            <div class="gallery-item" style="background: url('https://ecotope.com/wp-content/uploads/2016/11/600x400-placeholder.png') center/cover no-repeat;"></div>
-        </div>
+        <div class="gallery-grid" id = "gallery-grid"></div>
     </section>
 
     <!-- Contact section -->
-    <section id ="contact-section" class="section">
+    <section id="contact-section" class="section">
         <div class="section-title">
             <h2>Contact Us</h2>
             <p>Have questions or ready to book? Get in touch with our friendly team.</p>
@@ -247,7 +261,7 @@
     </section>
 
     <!-- Footer -->
-    <footer id = "footer-section" class="footer">
+    <footer id="footer-section" class="footer">
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Athidhi Resort</h4>
@@ -284,16 +298,20 @@
                 <h4>Newsletter</h4>
                 <p>Subscribe to our newsletter for special offers and updates.</p>
                 <form>
-                    <input id="email-address" placeholder="Enter your email address" style="width: 100%; padding: 0.8rem; margin-top: 1rem; border: none; border-radius: 5px;">
-                    <button style="width: 100%; margin-top: 1rem; background-color: var(--accent); color: var(--dark); border: none; padding: 0.8rem; border-radius: 5px; font-weight: 600; cursor: pointer;">Subscribe</button>
+                    <input id="email-address" placeholder="Enter your email address"
+                        style="width: 100%; padding: 0.8rem; margin-top: 1rem; border: none; border-radius: 5px;">
+                    <button
+                        style="width: 100%; margin-top: 1rem; background-color: var(--accent); color: var(--dark); border: none; padding: 0.8rem; border-radius: 5px; font-weight: 600; cursor: pointer;">Subscribe</button>
                 </form>
             </div>
         </div>
         <div class="copyright">
-            <h4>"Get in touch at <a href="mailto:manikanta.nari@outlook.com">manikanta.nari@outlook.com</a>  to create a stunning and unique website that stands out!"</h4>
+            <h4>"Get in touch at <a href="mailto:manikanta.nari@outlook.com">manikanta.nari@outlook.com</a> to create a
+                stunning and unique website that stands out!"</h4>
             <p>&copy; 2025 Athidhi Resort & Swimming Pool. All Rights Reserved.</p>
         </div>
     </footer>
 
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 // scripts/navigation.js
-document.addEventListener("DOMContentLoaded", function () {
+export function initNavigation() {
+    console.log("Navigation script loaded");
     const menuItems = document.querySelectorAll("nav ul li a");
     const exploreServices = document.getElementById("explore-service-link");
 
@@ -118,4 +119,4 @@ document.addEventListener("DOMContentLoaded", function () {
             defaultTab.classList.add("active");
         }
     }, 100);
-});
+}

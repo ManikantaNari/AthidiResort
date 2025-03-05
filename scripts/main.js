@@ -1,32 +1,15 @@
-(function() {
-    // Ensure sequential script loading
-    function loadScript(url) {
-        return new Promise((resolve, reject) => {
-            const script = document.createElement('script');
-            script.src = url;
-            script.onload = () => resolve();
-            script.onerror = () => reject(new Error(`Script load error for ${url}`));
-            document.body.appendChild(script);
-        });
-    }
+// main.js
+import { initNavigation } from "./navigation.js";
+import { initTabs } from "./tabs.js";
+import { initFormInteractions } from "./form-interactions.js";
+import { initScrolls } from "./scroll.js";
+import { initGallery } from "./gallery.js";
 
-    // Sequential loading of scripts
-    async function initializeScripts() {
-        try {
-            await loadScript('scripts/navigation.js');
-            await loadScript('scripts/tabs.js');
-            await loadScript('scripts/form-interactions.js');
-            await loadScript('scripts/scroll.js');
-            console.log('All scripts loaded successfully');
-        } catch (error) {
-            console.error('Script loading failed:', error);
-        }
-    }
-
-    // Run on DOM content loaded
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializeScripts);
-    } else {
-        initializeScripts();
-    }
-})();
+// Run functions on page load
+document.addEventListener("DOMContentLoaded", () => {
+    initNavigation();
+    initTabs();
+    initFormInteractions();
+    initScrolls();
+    initGallery();
+});

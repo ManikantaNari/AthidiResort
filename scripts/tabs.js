@@ -1,5 +1,5 @@
 // scripts/tabs.js
-document.addEventListener("DOMContentLoaded", function () {
+export function initTabs() {
     const tabItems = document.querySelectorAll(".tab-item");
     const resortTab = document.getElementById("resort-booking-tab");
     const poolTab = document.getElementById("pool-booking-tab");
@@ -26,4 +26,4 @@ document.addEventListener("DOMContentLoaded", function () {
             events: eventsTab
         }
     };
-});
+}

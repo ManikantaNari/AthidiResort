@@ -1,5 +1,5 @@
 // scripts/scroll.js
-document.addEventListener('DOMContentLoaded', function() {
+export function initScrolls() {
     // Smooth scrolling for all anchor links
     const smoothScrollLinks = document.querySelectorAll('a[href^="#"], a[href^="/#"]');
     
@@ -72,4 +72,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
-});
+}
