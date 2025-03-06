@@ -138,3 +138,15 @@
 .book-widget button:hover {
     background-color: #0c637a;
 }
+
+.error-border {
+    border: 2px solid red !important;
+    background-color: #ffe6e6; /* Light red background */
+    transition: 0.3s ease-in-out;
+}
+
+.form-message.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}

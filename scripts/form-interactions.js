@@ -22,36 +22,77 @@ export function initFormInteractions() {
         
         // Insert message
         form.insertBefore(messageEl, form.firstChild);
+    }
 
-        // Remove message after 5 seconds
-        setTimeout(() => {
-            messageEl.remove();
-        }, 5000);
+    function highlightError(input, hasError) {
+        if (hasError) {
+            input.classList.add("error-border");
+        } else {
+            input.classList.remove("error-border");
+        }
+    }
+
+    function clearMessageOnInput(form) {
+        form.querySelectorAll("input, textarea").forEach((input) => {
+            input.addEventListener("input", () => {
+                // Remove error border
+                input.classList.remove("error-border");
+
+                // Remove the error message if it exists
+                const existingMessage = form.querySelector(".form-message");
+                if (existingMessage) {
+                    existingMessage.remove();
+                }
+            });
+        });
     }
 
     // Contact Form Submission
     if (contactForm) {
+        clearMessageOnInput(contactForm);
+
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const subject = document.getElementById('subject').value.trim();
-            const message = document.getElementById('message').value.trim();
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const subjectInput = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
 
-            // Basic validation
-            if (!name || !email || !subject || !message) {
-                showMessage(contactForm, 'Please fill in all fields', true);
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const subject = subjectInput.value.trim();
+            const message = messageInput.value.trim();
+
+            let hasError = false;
+
+            // Basic validation with error highlighting
+            if (!name) {
+                highlightError(nameInput, true);
+                hasError = true;
+            } 
+
+            if (!email || !validateEmail(email)) {
+                highlightError(emailInput, true);
+                hasError = true;
+            } 
+
+            if (!subject) {
+                highlightError(subjectInput, true);
+                hasError = true;
+            } 
+
+            if (!message) {
+                highlightError(messageInput, true);
+                hasError = true;
+            } 
+
+            if (hasError) {
+                showMessage(contactForm, 'Please fill in all fields correctly', true);
                 return;
             }
 
-            if (!validateEmail(email)) {
-                showMessage(contactForm, 'Please enter a valid email address', true);
-                return;
-            }
-
-            // Here you would typically send the form data to a server
-            // For now, we'll just show a success message
+            // Success message
             showMessage(contactForm, 'Thank you for your message! We will get back to you soon.');
             contactForm.reset();
         });
@@ -59,23 +100,21 @@ export function initFormInteractions() {
 
     // Newsletter Subscription
     if (newsletterForm) {
+        clearMessageOnInput(newsletterForm);
+
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             const emailInput = document.getElementById('email-address');
             const email = emailInput.value.trim();
 
-            if (!email) {
-                showMessage(newsletterForm, 'Please enter an email address', true);
-                return;
-            }
-
-            if (!validateEmail(email)) {
+            if (!email || !validateEmail(email)) {
+                highlightError(emailInput, true);
                 showMessage(newsletterForm, 'Please enter a valid email address', true);
                 return;
             }
 
-            // Here you would typically send the email to a newsletter service
+            // Success message
             showMessage(newsletterForm, 'Thank you for subscribing to our newsletter!');
             emailInput.value = '';
         });
