@@ -6,7 +6,7 @@ header {
     top: 20px;
     left: 1%;
     right: 1%;
-    padding: 0.8rem 5%;
+    padding: 0.8rem 2%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,7 +55,7 @@ nav ul li a.active {
     border-bottom: 2px solid var(--primary);
 }
 
-.book-now-btn {
+.book-now {
     background-color: var(--primary);
     color: white;
     padding: 0.5rem 1.2rem;
@@ -67,6 +67,101 @@ nav ul li a.active {
     display: inline-block;
 }
 
-.book-now-btn:hover {
+.book-now:hover {
     background-color: #0c637a;
+}
+/* ===================== */
+/* Responsive Styles for Mobile */
+/* ===================== */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001; /* Ensure hamburger icon is above other content */
+}
+
+.hamburger span {
+    background: var(--primary);
+    height: 3px;
+    width: 30px;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* Mobile view */
+@media screen and (max-width: 768px) {
+    /* Set the header as a flex container */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    nav ul {
+        display: none; /* Initially hide nav items */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Adjust to position below the header */
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 10px 10px;
+        text-align: center;
+        visibility: hidden; /* Hide by default */
+        opacity: 0; /* Hide by default */
+        transition: visibility 0s, opacity 0.5s ease; /* Smooth transition */
+    }
+
+    nav ul.active {
+        display: flex; /* Display nav items when active */
+        visibility: visible; /* Ensure visibility */
+        opacity: 1; /* Show with full opacity */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger icon on mobile */
+        z-index: 1001; /* Ensure hamburger icon is above other content */
+    }
+
+    /* Animation for Hamburger Toggle */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Hide the Logo and Book Now button when hamburger is not active */
+    header:not(.active) .logo{
+        display: none; /* Hide by default when menu is not active */
+    }
+
+    /* Show Logo when hamburger is active */
+    header.active .logo{
+        display: block; /* Show when hamburger is active */
+    }
+
+    /* Position Book Now button on the right end of the screen with limited width */
+    .book-now {
+        position: absolute;
+        right: 10px; /* Right-aligned to the screen */
+        transform: translateY(-50%);
+        top: 50%;
+        width: auto; /* Allow it to be its natural width */
+        min-width: 100px; /* Minimum width to ensure it's not too small */
+        padding: 0.5rem 1rem; /* Adjust padding if needed */
+    }
 }

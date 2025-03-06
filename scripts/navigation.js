@@ -3,6 +3,13 @@ export function initNavigation() {
     console.log("Navigation script loaded");
     const menuItems = document.querySelectorAll("nav ul li a");
     const exploreServices = document.getElementById("explore-service-link");
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+        hamburger.classList.toggle("active");
+    });
 
     console.log("Navigation script loaded");
     console.log("Menu items found:", menuItems.length);
