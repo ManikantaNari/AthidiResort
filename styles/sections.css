@@ -26,6 +26,50 @@
     gap: 2rem;
 }
 
+
+/* Make feature cards scroll horizontally on small screens */
+@media (max-width: 768px) {
+    .features {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 1rem;
+        padding-bottom: 10px;
+        scroll-snap-type: x mandatory; /* Enables smooth scrolling */
+    }
+
+    .feature-card {
+        max-width: 100%; /* Each card takes up 80% of the screen width */
+        flex: 0 0 auto; /* Prevents resizing */
+        scroll-snap-align: start; /* Keeps cards aligned when scrolling */
+    }
+
+    /* Optional: Hide scrollbar for a clean look */
+    .features::-webkit-scrollbar {
+        display: flex;
+    }
+
+    /* Scroll indicator dots */
+    .scroll-indicator {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 15px;
+    }
+
+    .scroll-indicator div {
+        width: 10px;
+        height: 10px;
+        background: #ccc;
+        border-radius: 50%;
+    }
+
+    .scroll-indicator .active {
+        background: var(--primary); /* Change to match your theme color */
+    }
+}
+
+
 .feature-card {
     background-color: white;
     border-radius: 10px;
@@ -149,4 +193,8 @@
     color: red;
     font-size: 0.9rem;
     margin-top: 5px;
+}
+
+.hidden {
+    display: none !important;
 }

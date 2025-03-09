@@ -26,6 +26,50 @@
     align-items: center;
 }
 
+
+/* Testimonials section for mobile */
+@media (max-width: 768px) {
+    .testimonial-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 1rem;
+        padding-bottom: 10px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .testimonial-card {
+        max-width: 100%;
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+    }
+
+    /* Hide scrollbar */
+    .testimonial-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Scroll indicator dots */
+    .scroll-indicator {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 15px;
+    }
+
+    .scroll-indicator div {
+        width: 10px;
+        height: 10px;
+        background: #ccc;
+        border-radius: 50%;
+    }
+
+    .scroll-indicator .active {
+        background: var(--primary);
+        /* Change to match your theme color */
+    }
+}
+
 .author-img {
     width: 50px;
     height: 50px;
@@ -45,7 +89,8 @@
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Responsive grid */
     gap: 15px;
     padding: 20px;
 }
@@ -67,6 +112,43 @@
 .gallery-item img:hover {
     transform: scale(1.05);
 }
+
+/* Mobile view: Convert gallery into horizontal scroll */
+@media (max-width: 768px) {
+    .gallery-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 10px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .gallery-item {
+        min-width: 80%;
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+    }
+    
+    /* Scroll indicator dots */
+    .gallery-indicator {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 15px;
+    }
+
+    .gallery-indicator div {
+        width: 10px;
+        height: 10px;
+        background: #ccc;
+        border-radius: 50%;
+    }
+
+    .gallery-indicator .active {
+        background: var(--primary);
+    }
+}
+
 /* Lightbox Overlay */
 .lightbox {
     display: none;
@@ -120,7 +202,8 @@
 }
 
 /* Navigation Buttons */
-.prev, .next {
+.prev,
+.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -133,9 +216,15 @@
     border-radius: 20%;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+.prev {
+    left: 10px;
+}
 
-.prev:hover, .next:hover {
+.next {
+    right: 10px;
+}
+
+.prev:hover,
+.next:hover {
     background: white;
 }

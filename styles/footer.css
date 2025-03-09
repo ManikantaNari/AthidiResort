@@ -49,3 +49,6 @@ footer {
     text-decoration: none;
     transition: color 0.3s;
 }
+
+.copyright p {padding-top: 2rem;
+}

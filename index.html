@@ -43,12 +43,13 @@
             <span></span>
             <span></span>
         </div>
-    </header>    
+    </header>
 
     <!-- Hero section -->
     <section class="hero">
         <video autoplay muted loop id="heroVideo">
-            <source src="https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/VID-20250304-WA0001.mp4" type="video/mp4">
+            <source src="https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/VID-20250304-WA0001.mp4"
+                type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
 
@@ -82,7 +83,7 @@
                 <label for="check-out">Check Out</label>
                 <input type="date" id="check-out">
             </div>
-            <div class="input-group">
+            <div class="input-group guests">
                 <label for="guests">Guests</label>
                 <select id="guests">
                     <option value="1">1 Guest</option>
@@ -92,7 +93,7 @@
                     <option value="5+">5+ Guests</option>
                 </select>
             </div>
-            <div class="input-group">
+            <div class="input-group accommodation">
                 <label for="room-type">Accommodation</label>
                 <select id="room-type">
                     <option value="standard">Standard Room</option>
@@ -111,40 +112,46 @@
             <p>Discover the exceptional amenities and services that make Athidhi resort and swimming pool the perfect
                 destination for your getaway.</p>
         </div>
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-img"
-                    style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0011.jpg') center/cover no-repeat;">
+
+        <div class="features-container">
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-img"
+                        style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0011.jpg') center/cover no-repeat;">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Luxury Accommodations</h3>
+                        <p>Experience the ultimate comfort in our beautifully designed rooms and villas with premium
+                            amenities.</p>
+                        <a href="#" class="book-now-btn">Learn More</a>
+                    </div>
                 </div>
-                <div class="feature-content">
-                    <h3>Luxury Accommodations</h3>
-                    <p>Experience the ultimate comfort in our beautifully designed rooms and villas with premium
-                        amenities.</p>
-                    <a href="#" class="book-now-btn">Learn More</a>
+                <div class="feature-card">
+                    <div class="feature-img"
+                        style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0006.jpg') center/cover no-repeat;">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Olympic-Size Pool</h3>
+                        <p>Our commercial swimming pool is perfect for recreational swimming, competitions, and private
+                            events.</p>
+                        <a href="#" class="book-now-btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-img"
+                        style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0002.jpg') center/cover no-repeat;">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Event Spaces</h3>
+                        <p>Host unforgettable events in our versatile venues with professional planning services.</p>
+                        <a href="#" class="book-now-btn">Learn More</a>
+                    </div>
                 </div>
             </div>
-            <div class="feature-card">
-                <div class="feature-img"
-                    style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0006.jpg') center/cover no-repeat;">
-                </div>
-                <div class="feature-content">
-                    <h3>Olympic-Size Pool</h3>
-                    <p>Our commercial swimming pool is perfect for recreational swimming, competitions, and private
-                        events.</p>
-                    <a href="#" class="book-now-btn">Learn More</a>
-                </div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-img"
-                    style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0002.jpg') center/cover no-repeat;">
-                </div>
-                <div class="feature-content">
-                    <h3>Event Spaces</h3>
-                    <p>Host unforgettable events in our versatile venues with professional planning services.</p>
-                    <a href="#" class="book-now-btn">Learn More</a>
-                </div>
-            </div>
+            <!-- Indicator dots -->
+            <div class="scroll-indicator"></div>
         </div>
+
     </section>
 
     <!-- Testimonials section -->
@@ -153,47 +160,54 @@
             <h2>Guest Experiences</h2>
             <p>Hear what our satisfied guests have to say about their stay at Athidhi resort and swimming pool.</p>
         </div>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <p>"This resort exceeded all our expectations. The rooms were luxurious, the swimming pool was
-                        immaculate, and the staff was incredibly attentive. Our family event was absolutely perfect!"
-                    </p>
+        <div class="testimonial-container">
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"This resort exceeded all our expectations. The rooms were luxurious, the swimming pool was
+                            immaculate, and the staff was incredibly attentive. Our family event was absolutely
+                            perfect!"
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img"></div>
+                        <div class="author-info">
+                            <h4>Rising Stars</h4>
+                            <p>Family Celebration</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-author">
-                    <div class="author-img"></div>
-                    <div class="author-info">
-                        <h4>Rising Stars</h4>
-                        <p>Family Celebration</p>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"We hosted our corporate retreat here and it was a tremendous success. The swimming pool
+                            facilities are world-class, and the accommodations were perfect for our team of 20 people."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img"></div>
+                        <div class="author-info">
+                            <h4>Manikanta Nari</h4>
+                            <p>Corporate Event</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"My wedding at Athidhi Resort was a dream come true. The poolside ceremony was breathtaking,
+                            and
+                            our guests are still talking about how beautiful everything was!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img"></div>
+                        <div class="author-info">
+                            <h4>Gajjala Saikiran & Family</h4>
+                            <p>Wedding Celebration</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <p>"We hosted our corporate retreat here and it was a tremendous success. The swimming pool
-                        facilities are world-class, and the accommodations were perfect for our team of 20 people."</p>
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-img"></div>
-                    <div class="author-info">
-                        <h4>Manikanta Nari</h4>
-                        <p>Corporate Event</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <p>"My wedding at Athidhi Resort was a dream come true. The poolside ceremony was breathtaking, and
-                        our guests are still talking about how beautiful everything was!"</p>
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-img"></div>
-                    <div class="author-info">
-                        <h4>Gajjala Saikiran & Family</h4>
-                        <p>Wedding Celebration</p>
-                    </div>
-                </div>
-            </div>
+            <!-- Indicator dots -->
+            <div class="scroll-indicator"></div>
         </div>
     </section>
 
@@ -203,7 +217,7 @@
             <h2>Resort Gallery</h2>
             <p>Take a visual tour of our beautiful resort and swimming pool facilities.</p>
         </div>
-        <div class="gallery-grid" id = "gallery-grid"></div>
+        <div class="gallery-grid" id="gallery-grid"></div>
     </section>
 
     <!-- Contact section -->
