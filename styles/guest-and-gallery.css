@@ -124,7 +124,7 @@
     }
 
     .gallery-item {
-        min-width: 80%;
+        width: 90%;
         flex: 0 0 auto;
         scroll-snap-align: center;
     }

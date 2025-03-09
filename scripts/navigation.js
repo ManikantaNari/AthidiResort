@@ -67,11 +67,18 @@ export function initNavigation() {
         // Handle tab switching if applicable
         if (sectionConfig.tab) {
             setTimeout(() => {
+                // Activate the tab visually
                 const tabItems = document.querySelectorAll(".tab-item");
                 tabItems.forEach(tab => tab.classList.remove("active"));
                 sectionConfig.tab.classList.add("active");
+        
+                // Ensure the correct tab functionality applies
+                if (window.TabManager && typeof window.TabManager.setActiveTab === "function") {
+                    window.TabManager.setActiveTab(sectionConfig.tab);
+                }
             }, 300);
         }
+        
 
         // Special handling for offers section
         if (sectionConfig.emailInput) {

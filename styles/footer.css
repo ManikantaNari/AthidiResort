@@ -50,5 +50,16 @@ footer {
     transition: color 0.3s;
 }
 
-.copyright p {padding-top: 2rem;
+@media (max-width: 768px) {
+    .copyright a {
+        font-size: 1rem;
+        display: block;
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+}
+
+.copyright p {
+    padding-top: 2rem;
 }
