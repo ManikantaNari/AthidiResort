@@ -1,86 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athidhi Resort</title>
+    <title>Athidhi Resort & Swimming Pool</title>
 
-    <!-- Modular CSS -->
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/hero.css">
     <link rel="stylesheet" href="styles/sections.css">
+    <link rel="stylesheet" href="styles/rooms.css">
+    <link rel="stylesheet" href="styles/offers.css">
+    <link rel="stylesheet" href="styles/about.css">
     <link rel="stylesheet" href="styles/guest-and-gallery.css">
     <link rel="stylesheet" href="styles/contact-us.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <!-- Modular Scripts -->
     <script type="module" src="scripts/main.js"></script>
-    <!-- <script src="UnUsedBackup/script.js"></script> -->
 </head>
-
 <body>
-    <!-- Transparent header -->
+
+    <!-- ── Header ─────────────────────────────────────────────────────────── -->
     <header>
         <div class="logo">Athidhi Resort</div>
         <nav>
             <ul class="nav-links">
                 <li><a href="#" id="resort-link" class="active">Resort</a></li>
-                <li><a href="#" id="swimming-pool-link">Swimming Pool</a></li>
-                <li><a href="#" id="service-link">Services</a></li>
+                <li><a href="#" id="swimming-pool-link">Pool</a></li>
                 <li><a href="#" id="event-link">Events</a></li>
-                <li><a href="#" id="contact-link">Contact</a></li>
+                <li><a href="#" id="rooms-link">Rooms</a></li>
                 <li><a href="#" id="offer-link">Offers</a></li>
+                <li><a href="#" id="about-link">About</a></li>
+                <li><a href="#" id="contact-link">Contact</a></li>
             </ul>
             <a href="#" class="book-now">Book Now</a>
         </nav>
-        <!-- Hamburger Icon -->
         <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
     </header>
 
-    <!-- Hero section -->
+    <!-- ── Hero ───────────────────────────────────────────────────────────── -->
     <section class="hero">
-        <video autoplay muted loop id="heroVideo">
-            <source src="https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/VID-20250304-WA0001.mp4"
-                type="video/mp4">
-            Your browser does not support HTML5 video.
+        <video autoplay muted loop id="heroVideo" playsinline>
+            <source src="https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/VID-20250304-WA0001.mp4" type="video/mp4">
         </video>
-
-        <!-- Overlay for transparent shade -->
         <div class="overlay"></div>
-
         <div class="hero-content">
-            <h1>Experience Luxury & Relaxation</h1>
-            <p>Escape to Athidhi resort paradise and enjoy premium accommodations and our world-class swimming pool.</p>
+            <div class="hero-badge">Nakrekal's Premier Destination</div>
+            <h1>Where Every Moment<br>Becomes a Memory</h1>
+            <p>Luxury resort stays, Olympic swimming pool and grand event spaces — right in the heart of your town.</p>
             <div class="hero-btns">
                 <a href="#" class="hero-btn primary-btn">Book Your Stay</a>
-                <a href="#" id="explore-service-link" class="hero-btn secondary-btn">Explore Pool Services</a>
+                <a href="#" id="explore-service-link" class="hero-btn secondary-btn">
+                    <i class="fas fa-play-circle"></i> Explore Pool Services
+                </a>
+            </div>
+            <div class="hero-highlights">
+                <div class="highlight"><i class="fas fa-home"></i> 2 Private Bedrooms</div>
+                <div class="highlight"><i class="fas fa-swimming-pool"></i> Olympic Pool</div>
+                <div class="highlight"><i class="fas fa-glass-cheers"></i> Event Spaces</div>
             </div>
         </div>
     </section>
 
-    <!-- Booking section -->
+    <!-- ── Booking Widget ─────────────────────────────────────────────────── -->
     <section id="booking-section" class="section booking">
+        <div class="section-title">
+            <h2>Check Availability</h2>
+            <p>Fill in your details — we'll get back to you with pricing within the hour.</p>
+        </div>
+
         <div class="tab-navigation">
-            <div id="resort-booking-tab" class="tab-item active">Resort Stay</div>
-            <div id="pool-booking-tab" class="tab-item">Pool Booking</div>
-            <div id="events-booking-tab" class="tab-item">Events</div>
+            <div id="resort-booking-tab" class="tab-item active">
+                <i class="fas fa-home"></i> Resort Stay
+            </div>
+            <div id="pool-booking-tab" class="tab-item">
+                <i class="fas fa-swimming-pool"></i> Pool Booking
+            </div>
+            <div id="events-booking-tab" class="tab-item">
+                <i class="fas fa-glass-cheers"></i> Events
+            </div>
         </div>
 
         <div class="book-widget">
             <div class="input-group">
-                <label for="check-in">Check In</label>
+                <label for="booking-name">Your Name *</label>
+                <input type="text" id="booking-name" placeholder="Full name">
+            </div>
+            <div class="input-group">
+                <label for="booking-email">Email *</label>
+                <input type="email" id="booking-email" placeholder="your@email.com">
+            </div>
+            <div class="input-group">
+                <label for="booking-phone">Phone *</label>
+                <input type="tel" id="booking-phone" placeholder="+91 XXXXX XXXXX">
+            </div>
+            <div class="input-group">
+                <label for="check-in">Check-in Date *</label>
                 <input type="date" id="check-in">
             </div>
             <div class="input-group">
-                <label for="check-out">Check Out</label>
+                <label for="check-out">Check-out Date</label>
                 <input type="date" id="check-out">
             </div>
             <div class="input-group guests">
@@ -96,81 +119,198 @@
             <div class="input-group accommodation">
                 <label for="room-type">Accommodation</label>
                 <select id="room-type">
-                    <option value="standard">Standard Room</option>
-                    <option value="deluxe">Deluxe Room</option>
-                    <option value="villa">Complete Resort</option>
+                    <option value="bedroom-1">Bedroom 1</option>
+                    <option value="bedroom-2">Bedroom 2</option>
+                    <option value="hall">Hall Room</option>
+                    <option value="full-resort">Full Resort</option>
                 </select>
             </div>
-            <button>Check Availability</button>
+            <div class="input-group special-requests-group">
+                <label for="special-requests">Special Requests</label>
+                <input type="text" id="special-requests" placeholder="Any special requirements?">
+            </div>
+            <div class="booking-note">
+                <i class="fas fa-info-circle"></i>
+                Pricing is flexible and will be confirmed by our team after reviewing your booking.
+            </div>
+            <button class="book-btn">Request Booking</button>
         </div>
     </section>
 
-    <!-- Features section -->
-    <section id="features-section" class="section">
+    <!-- ── Rooms ──────────────────────────────────────────────────────────── -->
+    <section id="rooms-section" class="section">
+        <div class="section-title">
+            <h2>Our Accommodations</h2>
+            <p>Choose from our thoughtfully designed spaces — from cozy private bedrooms to a full resort experience for your entire group.</p>
+        </div>
+
+        <div class="rooms-grid">
+            <div class="room-card" data-room="bedroom-1">
+                <div class="room-img" style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0011.jpg') center/cover no-repeat;"></div>
+                <div class="room-content">
+                    <div class="room-header">
+                        <h3>Bedroom 1</h3>
+                        <span class="room-tag">Private</span>
+                    </div>
+                    <p>A beautifully furnished private bedroom with premium bedding, air conditioning, and scenic views of the resort grounds.</p>
+                    <ul class="room-amenities">
+                        <li><i class="fas fa-bed"></i> King-size bed</li>
+                        <li><i class="fas fa-snowflake"></i> Air conditioning</li>
+                        <li><i class="fas fa-shower"></i> Attached bathroom</li>
+                        <li><i class="fas fa-wifi"></i> Free WiFi</li>
+                    </ul>
+                    <a href="#" class="book-room-btn">Book This Room</a>
+                </div>
+            </div>
+
+            <div class="room-card" data-room="bedroom-2">
+                <div class="room-img" style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0006.jpg') center/cover no-repeat;"></div>
+                <div class="room-content">
+                    <div class="room-header">
+                        <h3>Bedroom 2</h3>
+                        <span class="room-tag">Private</span>
+                    </div>
+                    <p>Spacious and serene, this bedroom offers a perfect retreat with modern amenities and a warm, welcoming ambiance.</p>
+                    <ul class="room-amenities">
+                        <li><i class="fas fa-bed"></i> Double bed</li>
+                        <li><i class="fas fa-snowflake"></i> Air conditioning</li>
+                        <li><i class="fas fa-shower"></i> Attached bathroom</li>
+                        <li><i class="fas fa-wifi"></i> Free WiFi</li>
+                    </ul>
+                    <a href="#" class="book-room-btn">Book This Room</a>
+                </div>
+            </div>
+
+            <div class="room-card" data-room="hall">
+                <div class="room-img" style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0002.jpg') center/cover no-repeat;"></div>
+                <div class="room-content">
+                    <div class="room-header">
+                        <h3>Hall Room</h3>
+                        <span class="room-tag">Social Space</span>
+                    </div>
+                    <p>A grand, versatile hall with a large-screen TV, dining area, comfortable sofa seating — ideal for family gatherings and celebrations.</p>
+                    <ul class="room-amenities">
+                        <li><i class="fas fa-tv"></i> Large TV</li>
+                        <li><i class="fas fa-utensils"></i> Dining table</li>
+                        <li><i class="fas fa-couch"></i> Sofa & lounge area</li>
+                        <li><i class="fas fa-snowflake"></i> Air conditioning</li>
+                    </ul>
+                    <a href="#" class="book-room-btn">Book This Space</a>
+                </div>
+            </div>
+
+            <div class="room-card featured-room" data-room="full-resort">
+                <div class="room-badge">Best Value</div>
+                <div class="room-img" style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0004.jpg') center/cover no-repeat;"></div>
+                <div class="room-content">
+                    <div class="room-header">
+                        <h3>Full Resort</h3>
+                        <span class="room-tag featured-tag">Entire Property</span>
+                    </div>
+                    <p>Book the entire resort — both bedrooms, the hall, pool access, and all common areas. Perfect for weddings, reunions, and large celebrations.</p>
+                    <ul class="room-amenities">
+                        <li><i class="fas fa-home"></i> Both bedrooms</li>
+                        <li><i class="fas fa-door-open"></i> Full hall access</li>
+                        <li><i class="fas fa-swimming-pool"></i> Private pool access</li>
+                        <li><i class="fas fa-utensils"></i> Full dining area</li>
+                    </ul>
+                    <a href="#" class="book-room-btn featured-book-btn">Book Full Resort</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Features ───────────────────────────────────────────────────────── -->
+    <section id="features-section" class="section features-section">
         <div class="section-title">
             <h2>Our Premium Features</h2>
-            <p>Discover the exceptional amenities and services that make Athidhi resort and swimming pool the perfect
-                destination for your getaway.</p>
+            <p>Discover the exceptional amenities that make Athidhi Resort the perfect destination for every occasion.</p>
         </div>
 
         <div class="features-container">
             <div class="features">
                 <div class="feature-card">
-                    <div class="feature-img"
-                        style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0011.jpg') center/cover no-repeat;">
-                    </div>
+                    <div class="feature-img" style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0011.jpg') center/cover no-repeat;"></div>
                     <div class="feature-content">
                         <h3>Luxury Accommodations</h3>
-                        <p>Experience the ultimate comfort in our beautifully designed rooms and villas with premium
-                            amenities.</p>
-                        <a href="#" class="book-now-btn">Learn More</a>
+                        <p>Premium rooms designed for comfort, with modern amenities and a peaceful resort setting.</p>
+                        <a href="#rooms-section" class="book-now-btn">View Rooms</a>
                     </div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-img"
-                        style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0006.jpg') center/cover no-repeat;">
-                    </div>
+                    <div class="feature-img" style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0006.jpg') center/cover no-repeat;"></div>
                     <div class="feature-content">
                         <h3>Olympic-Size Pool</h3>
-                        <p>Our commercial swimming pool is perfect for recreational swimming, competitions, and private
-                            events.</p>
-                        <a href="#" class="book-now-btn">Learn More</a>
+                        <p>Open 6 AM – 9 PM daily. Perfect for recreational swimming, fitness laps, and poolside events.</p>
+                        <a href="#" id="feature-pool-book" class="book-now-btn">Book Pool</a>
                     </div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-img"
-                        style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0002.jpg') center/cover no-repeat;">
-                    </div>
+                    <div class="feature-img" style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0002.jpg') center/cover no-repeat;"></div>
                     <div class="feature-content">
                         <h3>Event Spaces</h3>
-                        <p>Host unforgettable events in our versatile venues with professional planning services.</p>
-                        <a href="#" class="book-now-btn">Learn More</a>
+                        <p>Host weddings, birthday parties, corporate retreats and family celebrations in our beautiful venues.</p>
+                        <a href="#" id="feature-event-book" class="book-now-btn">Plan Event</a>
                     </div>
                 </div>
             </div>
-            <!-- Indicator dots -->
             <div class="scroll-indicator"></div>
         </div>
-
     </section>
 
-    <!-- Testimonials section -->
+    <!-- ── Offers ─────────────────────────────────────────────────────────── -->
+    <section id="offers-section" class="section offers-section">
+        <div class="section-title">
+            <h2>Special Offers</h2>
+            <p>Limited time deals crafted just for early risers and smart planners.</p>
+        </div>
+
+        <div class="offers-grid">
+            <div class="offer-card">
+                <div class="offer-top">
+                    <div class="offer-badge">⏰ Early Bird</div>
+                    <div class="offer-icon"><i class="fas fa-swimming-pool"></i></div>
+                    <h3>Morning Pool Special</h3>
+                    <p>Own the pool during the golden hour — before the crowds, in perfect peace.</p>
+                </div>
+                <div class="offer-details">
+                    <div class="offer-time-chip"><i class="fas fa-clock"></i> 6:00 AM — 7:00 AM</div>
+                    <div class="offer-price-row">
+                        <span class="offer-price">₹80</span>
+                        <span class="offer-unit">per person</span>
+                    </div>
+                    <ul class="offer-perks">
+                        <li><i class="fas fa-check"></i> Exclusive pool access</li>
+                        <li><i class="fas fa-check"></i> 1 hour session</li>
+                        <li><i class="fas fa-check"></i> Limited slots daily</li>
+                    </ul>
+                </div>
+                <a href="#" class="offer-btn">Book This Offer</a>
+            </div>
+
+            <!-- More offers can be added here -->
+            <div class="offer-placeholder">
+                <i class="fas fa-tag"></i>
+                <p>More offers coming soon.<br>Subscribe to our newsletter to be the first to know.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Testimonials ───────────────────────────────────────────────────── -->
     <section class="section testimonials">
         <div class="section-title">
             <h2>Guest Experiences</h2>
-            <p>Hear what our satisfied guests have to say about their stay at Athidhi resort and swimming pool.</p>
+            <p>Hear what our guests have to say about their time at Athidhi Resort.</p>
         </div>
         <div class="testimonial-container">
             <div class="testimonial-grid">
                 <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
                     <div class="testimonial-content">
-                        <p>"This resort exceeded all our expectations. The rooms were luxurious, the swimming pool was
-                            immaculate, and the staff was incredibly attentive. Our family event was absolutely
-                            perfect!"
-                        </p>
+                        <p>"This resort exceeded all our expectations. The rooms were luxurious, the pool was immaculate, and the staff was incredibly attentive. Our family event was absolutely perfect!"</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-img"></div>
+                        <div class="author-avatar">RS</div>
                         <div class="author-info">
                             <h4>Rising Stars</h4>
                             <p>Family Celebration</p>
@@ -178,13 +318,12 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
                     <div class="testimonial-content">
-                        <p>"We hosted our corporate retreat here and it was a tremendous success. The swimming pool
-                            facilities are world-class, and the accommodations were perfect for our team of 20 people."
-                        </p>
+                        <p>"We hosted our corporate retreat here and it was a tremendous success. The swimming pool facilities are world-class, and the accommodations were perfect for our team of 20."</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-img"></div>
+                        <div class="author-avatar">MN</div>
                         <div class="author-info">
                             <h4>Manikanta Nari</h4>
                             <p>Corporate Event</p>
@@ -192,13 +331,12 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
                     <div class="testimonial-content">
-                        <p>"My wedding at Athidhi Resort was a dream come true. The poolside ceremony was breathtaking,
-                            and
-                            our guests are still talking about how beautiful everything was!"</p>
+                        <p>"My wedding at Athidhi Resort was a dream come true. The poolside ceremony was breathtaking, and our guests are still talking about how beautiful everything was!"</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-img"></div>
+                        <div class="author-avatar">GS</div>
                         <div class="author-info">
                             <h4>Gajjala Saikiran & Family</h4>
                             <p>Wedding Celebration</p>
@@ -206,25 +344,52 @@
                     </div>
                 </div>
             </div>
-            <!-- Indicator dots -->
             <div class="scroll-indicator"></div>
         </div>
     </section>
 
-    <!-- Gallery section -->
+    <!-- ── Gallery ────────────────────────────────────────────────────────── -->
     <section class="section">
         <div class="section-title">
             <h2>Resort Gallery</h2>
-            <p>Take a visual tour of our beautiful resort and swimming pool facilities.</p>
+            <p>A glimpse into the world of Athidhi Resort — where every corner tells a story.</p>
         </div>
         <div class="gallery-grid" id="gallery-grid"></div>
     </section>
 
-    <!-- Contact section -->
+    <!-- ── About ──────────────────────────────────────────────────────────── -->
+    <section id="about-section" class="section about-section">
+        <div class="about-grid">
+            <div class="about-visual">
+                <div class="about-img" style="background: url('https://raw.githubusercontent.com/ManikantaNari/FarmHouse/main/IMG-20250304-WA0003.jpg') center/cover no-repeat;"></div>
+                <div class="about-img-overlay">
+                    <div class="about-stat"><strong>2</strong><span>Bedrooms</span></div>
+                    <div class="about-stat"><strong>1</strong><span>Grand Hall</span></div>
+                    <div class="about-stat"><strong>6AM</strong><span>Pool Opens</span></div>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="about-eyebrow">Our Story</div>
+                <h2>Born from a Small Town Dream</h2>
+                <p class="about-lead">What happens when childhood wishes refuse to stay wishes?</p>
+                <p>Growing up in Nakrekal — a warm, close-knit town in the heart of Telangana — a group of best friends shared everything: school adventures, summer afternoons, and one quiet longing. The kind of resort getaways, poolside summers, and grand celebration venues that always seemed to exist only in bigger cities, just out of reach for families like theirs.</p>
+                <p>Years passed. Each of them built their own journey. But that longing never left.</p>
+                <p>So they came back together — not just as friends, but as founders — with one purpose: to build the experience they once had to miss, right inside their own town. So that no child in Nakrekal would grow up envying what the big cities have. So that every wedding could be magical, every birthday unforgettable, every summer afternoon worth diving into.</p>
+                <p class="about-quote">"We didn't want the next generation to miss what we missed. That's the whole reason Athidhi exists."</p>
+                <div class="about-tag-row">
+                    <span class="about-tag"><i class="fas fa-map-marker-alt"></i> Nakrekal, Telangana</span>
+                    <span class="about-tag"><i class="fas fa-users"></i> Founded by friends</span>
+                    <span class="about-tag"><i class="fas fa-heart"></i> Built for the community</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Contact ────────────────────────────────────────────────────────── -->
     <section id="contact-section" class="section">
         <div class="section-title">
             <h2>Contact Us</h2>
-            <p>Have questions or ready to book? Get in touch with our friendly team.</p>
+            <p>Have questions or ready to book? Our team is happy to help.</p>
         </div>
         <div class="contact-grid">
             <div class="contact-info">
@@ -232,11 +397,11 @@
                 <div class="contact-details">
                     <div class="contact-item">
                         <div class="contact-icon">📍</div>
-                        <div>Athidi Resort, 5C5P+9G9, Patel Nagar, Nakrekal, Telangana 508211, India</div>
+                        <div>Athidhi Resort, 5C5P+9G9, Patel Nagar, Nakrekal, Telangana 508211</div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">📞</div>
-                        <div>+91 77308-32757</div>
+                        <div><a href="tel:+917730832757">+91 77308-32757</a></div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">✉️</div>
@@ -246,19 +411,19 @@
                         <div class="contact-icon">⏰</div>
                         <div>
                             <p>Reception: Open 24/7</p>
-                            <p>Swimming Pool: 6:00 AM - 10:00 PM</p>
+                            <p>Swimming Pool: 6:00 AM – 9:00 PM</p>
                         </div>
                     </div>
                 </div>
                 <h3>Follow Us</h3>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/yourpage" target="_blank" class="social-icon">
+                    <a href="https://www.facebook.com/yourpage" target="_blank" class="social-icon" aria-label="Facebook">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://www.instagram.com/yourpage" target="_blank" class="social-icon">
+                    <a href="https://www.instagram.com/yourpage" target="_blank" class="social-icon" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://t.me/yourusername" target="_blank" class="social-icon">
+                    <a href="https://t.me/yourusername" target="_blank" class="social-icon" aria-label="Telegram">
                         <i class="fab fa-telegram-plane"></i>
                     </a>
                 </div>
@@ -287,34 +452,27 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ── Footer ─────────────────────────────────────────────────────────── -->
     <footer id="footer-section" class="footer">
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Athidhi Resort</h4>
-                <p>Luxury accommodations and premium swimming pool facilities for the perfect getaway experience.</p>
+                <p>Nakrekal's premier destination for resort stays, swimming, and unforgettable events.</p>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/yourpage" target="_blank" class="social-icon">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/yourpage" target="_blank" class="social-icon">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://t.me/yourusername" target="_blank" class="social-icon">
-                        <i class="fab fa-telegram-plane"></i>
-                    </a>
+                    <a href="https://www.facebook.com/yourpage" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/yourpage" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/yourusername" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
                 </div>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Accommodations</a></li>
-                    <li><a href="#">Swimming Pool</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#rooms-section">Rooms</a></li>
+                    <li><a href="#booking-section">Book a Stay</a></li>
+                    <li><a href="#offers-section">Offers</a></li>
+                    <li><a href="#about-section">About Us</a></li>
+                    <li><a href="#contact-section">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -322,30 +480,26 @@
                 <ul>
                     <li><a href="#">Resort Stays</a></li>
                     <li><a href="#">Pool Rentals</a></li>
-                    <li><a href="#">Event Hosting</a></li>
-                    <li><a href="#">Corporate Retreats</a></li>
                     <li><a href="#">Wedding Packages</a></li>
-                    <li><a href="#">Swimming Lessons</a></li>
+                    <li><a href="#">Corporate Retreats</a></li>
+                    <li><a href="#">Birthday Parties</a></li>
+                    <li><a href="#">Family Getaways</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Newsletter</h4>
-                <p>Subscribe to our newsletter for special offers and updates.</p>
+                <p>Get exclusive offers and resort updates straight to your inbox.</p>
                 <form>
-                    <input id="email-address" placeholder="Enter your email address"
-                        style="width: 100%; padding: 0.8rem; margin-top: 1rem; border: none; border-radius: 5px;">
-                    <button
-                        style="width: 100%; margin-top: 1rem; background-color: var(--accent); color: var(--dark); border: none; padding: 0.8rem; border-radius: 5px; font-weight: 600; cursor: pointer;">Subscribe</button>
+                    <input id="email-address" type="email" placeholder="Enter your email address">
+                    <button type="submit">Subscribe</button>
                 </form>
             </div>
         </div>
         <div class="copyright">
-            <h4>"Get in touch at <a href="mailto:manikanta.nari@outlook.com">manikanta.nari@outlook.com</a> to create a
-                stunning and unique website that stands out!"</h4>
-            <p>&copy; 2025 Athidhi Resort & Swimming Pool. All Rights Reserved.</p>
+            <p>&copy; 2025 Athidhi Resort & Swimming Pool, Nakrekal. All Rights Reserved.</p>
+            <p class="footer-credit">Web design by <a href="mailto:manikanta.nari@outlook.com">Manikanta Nari</a></p>
         </div>
     </footer>
 
 </body>
-
 </html>

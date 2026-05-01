@@ -1,136 +1,95 @@
-// scripts/navigation.js
 export function initNavigation() {
-    console.log("Navigation script loaded");
-    const menuItems = document.querySelectorAll("nav ul li a");
-    const exploreServices = document.getElementById("explore-service-link");
-    const hamburger = document.querySelector(".hamburger");
-    const navLinks = document.querySelector(".nav-links");
+    const hamburger   = document.querySelector('.hamburger');
+    const navLinks    = document.querySelector('.nav-links');
+    const menuItems   = document.querySelectorAll('nav ul li a');
 
-    hamburger.addEventListener("click", function () {
-        navLinks.classList.toggle("active");
-        hamburger.classList.toggle("active");
+    hamburger?.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
     });
 
-    console.log("Navigation script loaded");
-    console.log("Menu items found:", menuItems.length);
-    
+    // Close mobile menu when a link is clicked
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger?.classList.remove('active');
+        });
+    });
+
     const sections = {
         resort: {
-            menuItem: document.getElementById("resort-link"),
-            section: document.getElementById("booking-section"),
-            tab: document.getElementById("resort-booking-tab")
+            menuItem: document.getElementById('resort-link'),
+            section:  document.getElementById('booking-section'),
+            tab:      document.getElementById('resort-booking-tab')
         },
         pool: {
-            menuItem: document.getElementById("swimming-pool-link"),
-            section: document.getElementById("booking-section"),
-            tab: document.getElementById("pool-booking-tab")
+            menuItem: document.getElementById('swimming-pool-link'),
+            section:  document.getElementById('booking-section'),
+            tab:      document.getElementById('pool-booking-tab')
         },
         events: {
-            menuItem: document.getElementById("event-link"),
-            section: document.getElementById("booking-section"),
-            tab: document.getElementById("events-booking-tab")
+            menuItem: document.getElementById('event-link'),
+            section:  document.getElementById('booking-section'),
+            tab:      document.getElementById('events-booking-tab')
         },
-        services: {
-            menuItem: document.getElementById("service-link"),
-            section: document.getElementById("features-section")
-        },
-        contact: {
-            menuItem: document.getElementById("contact-link"),
-            section: document.getElementById("contact-section")
+        rooms: {
+            menuItem: document.getElementById('rooms-link'),
+            section:  document.getElementById('rooms-section')
         },
         offers: {
-            menuItem: document.getElementById("offer-link"),
-            section: document.getElementById("footer-section"),
-            emailInput: document.getElementById("email-address")
+            menuItem: document.getElementById('offer-link'),
+            section:  document.getElementById('offers-section')
+        },
+        about: {
+            menuItem: document.getElementById('about-link'),
+            section:  document.getElementById('about-section')
+        },
+        contact: {
+            menuItem: document.getElementById('contact-link'),
+            section:  document.getElementById('contact-section')
         }
     };
 
-    function setActiveMenuItem(clickedItem) {
-        menuItems.forEach(item => item.classList.remove("active"));
-        clickedItem.classList.add("active");
+    function setActive(item) {
+        menuItems.forEach(i => i.classList.remove('active'));
+        item?.classList.add('active');
     }
 
-    function navigateToSection(sectionConfig, event) {
-        event.preventDefault();
-        
-        // Scroll to section
-        if (sectionConfig.section) {
-            sectionConfig.section.scrollIntoView({ 
-                behavior: "smooth", 
-                block: sectionConfig.tab ? "center" : "start" 
-            });
-        }
-
-        // Set active menu item
-        setActiveMenuItem(sectionConfig.menuItem);
-
-        // Handle tab switching if applicable
-        if (sectionConfig.tab) {
+    function scrollTo(cfg, e) {
+        e.preventDefault();
+        cfg.section?.scrollIntoView({ behavior: 'smooth', block: cfg.tab ? 'center' : 'start' });
+        setActive(cfg.menuItem);
+        if (cfg.tab) {
             setTimeout(() => {
-                // Activate the tab visually
-                const tabItems = document.querySelectorAll(".tab-item");
-                tabItems.forEach(tab => tab.classList.remove("active"));
-                sectionConfig.tab.classList.add("active");
-        
-                // Ensure the correct tab functionality applies
-                if (window.TabManager && typeof window.TabManager.setActiveTab === "function") {
-                    window.TabManager.setActiveTab(sectionConfig.tab);
-                }
+                document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+                cfg.tab.classList.add('active');
+                window.TabManager?.setActiveTab(cfg.tab);
             }, 300);
         }
-        
-
-        // Special handling for offers section
-        if (sectionConfig.emailInput) {
-            setTimeout(() => {
-                sectionConfig.emailInput.style.border = "2px solid #ff6600";
-                sectionConfig.emailInput.style.boxShadow = "0 0 10px #ff6600";
-            }, 1000);
-
-            setTimeout(() => {
-                sectionConfig.emailInput.style.border = "";
-                sectionConfig.emailInput.style.boxShadow = "";
-            }, 3000);
-        }
     }
 
-    // Set up event listeners for each section
-    Object.values(sections).forEach(sectionConfig => {
-        if (sectionConfig.menuItem && sectionConfig.section) {
-            sectionConfig.menuItem.addEventListener("click", (event) => 
-                navigateToSection(sectionConfig, event)
-            );
-        }
+    Object.values(sections).forEach(cfg => {
+        cfg.menuItem?.addEventListener('click', e => scrollTo(cfg, e));
     });
 
-    // Explore services link
-    if (exploreServices && sections.services.section) {
-        exploreServices.addEventListener("click", function (event) {
-            event.preventDefault();
-            sections.services.section.scrollIntoView({ 
-                behavior: "smooth", 
-                block: "center" 
-            });
-            setActiveMenuItem(sections.services.menuItem);
-        });
-    }
+    // Hero "Explore Pool Services" button
+    document.getElementById('explore-service-link')?.addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById('features-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setActive(sections.rooms.menuItem);
+    });
 
-    // Reset to default on page load and scroll to top
-    window.addEventListener("scroll", function () {
+    // Reset active state at page top
+    window.addEventListener('scroll', () => {
         if (window.scrollY === 0) {
-            setActiveMenuItem(sections.resort.menuItem);
-            const tabItems = document.querySelectorAll(".tab-item");
-            tabItems.forEach(tab => tab.classList.remove("active"));
-            document.querySelector(".tab-item:first-child").classList.add("active");
+            setActive(sections.resort.menuItem);
+            document.querySelector('.tab-item:first-child')?.classList.add('active');
         }
     });
 
-    // Ensure page starts at top with default states
+    // Start at top
     setTimeout(() => {
         window.scrollTo(0, 0);
-        const defaultTab = document.querySelector(".tab-item:first-child");
-        if (defaultTab) {
-            defaultTab.classList.add("active");
-        }
+        document.querySelector('.tab-item:first-child')?.classList.add('active');
     }, 100);
 }

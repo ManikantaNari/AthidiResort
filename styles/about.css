@@ -1,0 +1,136 @@
+/* styles/about.css */
+.about-section {
+    background: var(--dark);
+    color: white;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-visual {
+    position: relative;
+}
+
+.about-img {
+    width: 100%;
+    height: 480px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.about-img-overlay {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    background: var(--primary);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.about-stat {
+    text-align: center;
+    color: white;
+}
+
+.about-stat strong {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.about-stat span {
+    font-size: 0.72rem;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.about-content {
+    color: #cbd5e1;
+}
+
+.about-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8rem;
+}
+
+.about-content h2 {
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.about-lead {
+    font-size: 1.1rem;
+    color: #e2e8f0;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.about-content p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+}
+
+.about-quote {
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    font-style: italic;
+    color: var(--accent) !important;
+    font-size: 1rem !important;
+    margin: 1.5rem 0 !important;
+}
+
+.about-tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+}
+
+.about-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #e2e8f0;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+}
+
+.about-tag i {
+    color: var(--accent);
+}
+
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .about-img {
+        height: 300px;
+    }
+    .about-img-overlay {
+        bottom: -1rem;
+        right: 1rem;
+    }
+    .about-content h2 {
+        font-size: 1.7rem;
+    }
+}

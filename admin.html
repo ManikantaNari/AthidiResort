@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athidhi Resort — Admin</title>
+    <link rel="stylesheet" href="styles/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script type="module" src="scripts/admin.js"></script>
+</head>
+<body>
+
+    <!-- ── PIN Login ──────────────────────────────────────────────────────── -->
+    <div id="login-screen">
+        <div class="login-card">
+            <div class="login-logo">
+                <i class="fas fa-umbrella-beach"></i>
+                <h1>Athidhi Resort</h1>
+                <p>Admin Panel</p>
+            </div>
+            <div class="pin-display" id="pin-display">○ ○ ○ ○</div>
+            <div id="pin-error" class="pin-error"></div>
+            <div class="pinpad">
+                <button class="pin-key" data-digit="1">1</button>
+                <button class="pin-key" data-digit="2">2</button>
+                <button class="pin-key" data-digit="3">3</button>
+                <button class="pin-key" data-digit="4">4</button>
+                <button class="pin-key" data-digit="5">5</button>
+                <button class="pin-key" data-digit="6">6</button>
+                <button class="pin-key" data-digit="7">7</button>
+                <button class="pin-key" data-digit="8">8</button>
+                <button class="pin-key" data-digit="9">9</button>
+                <button class="pin-key clear-key" data-action="clear">C</button>
+                <button class="pin-key" data-digit="0">0</button>
+                <button class="pin-key back-key" data-action="back"><i class="fas fa-delete-left"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Admin Dashboard ────────────────────────────────────────────────── -->
+    <div id="admin-dashboard" class="hidden">
+
+        <header class="admin-header">
+            <div class="admin-logo">
+                <i class="fas fa-umbrella-beach"></i>
+                <span>Athidhi Resort Admin</span>
+            </div>
+            <div class="header-right">
+                <div class="live-badge"><span class="live-dot"></span> Live</div>
+                <button id="logout-btn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </header>
+
+        <div class="admin-tabs">
+            <button class="admin-tab active" data-tab="bookings">
+                <i class="fas fa-calendar-check"></i>
+                <span>Bookings</span> <span class="badge" id="bookings-count">0</span>
+            </button>
+            <button class="admin-tab" data-tab="contacts">
+                <i class="fas fa-envelope"></i>
+                <span>Contacts</span> <span class="badge" id="contacts-count">0</span>
+            </button>
+            <button class="admin-tab" data-tab="subscribers">
+                <i class="fas fa-bell"></i>
+                <span>Subscribers</span> <span class="badge" id="subscribers-count">0</span>
+            </button>
+            <button class="admin-tab" data-tab="reports">
+                <i class="fas fa-chart-bar"></i>
+                <span>Reports</span>
+            </button>
+        </div>
+
+        <div class="admin-content">
+
+            <!-- Bookings Tab -->
+            <div id="tab-bookings" class="tab-panel active">
+                <div class="panel-header">
+                    <h2>Booking Requests</h2>
+                    <button class="refresh-btn" id="refresh-bookings"><i class="fas fa-circle"></i> Real-time</button>
+                </div>
+                <div id="bookings-list" class="cards-list">
+                    <div class="loading"><i class="fas fa-spinner fa-spin"></i> Connecting...</div>
+                </div>
+            </div>
+
+            <!-- Contacts Tab -->
+            <div id="tab-contacts" class="tab-panel hidden">
+                <div class="panel-header">
+                    <h2>Contact Messages</h2>
+                    <button class="refresh-btn" id="refresh-contacts"><i class="fas fa-circle"></i> Real-time</button>
+                </div>
+                <div id="contacts-list" class="cards-list">
+                    <div class="loading"><i class="fas fa-spinner fa-spin"></i> Connecting...</div>
+                </div>
+            </div>
+
+            <!-- Subscribers Tab -->
+            <div id="tab-subscribers" class="tab-panel hidden">
+                <div class="panel-header">
+                    <h2>Newsletter Subscribers</h2>
+                    <button class="refresh-btn" id="refresh-subscribers"><i class="fas fa-circle"></i> Real-time</button>
+                </div>
+                <div id="subscribers-list" class="cards-list">
+                    <div class="loading"><i class="fas fa-spinner fa-spin"></i> Connecting...</div>
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div id="tab-reports" class="tab-panel hidden">
+                <div class="panel-header">
+                    <h2>Monthly Reports</h2>
+                </div>
+                <div id="report-body"></div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
