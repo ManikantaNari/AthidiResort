@@ -9,6 +9,3 @@ node_modules/
 
 # Logs
 *.log
-
-# Sensitive config (Firebase keys, admin PIN, EmailJS credentials)
-scripts/config.js
