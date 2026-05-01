@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
     initGallery();
     initBooking();
 
+    // Add timestamp to footer
+    const timestampElement = document.getElementById('timestamp');
+    if (timestampElement) {
+        timestampElement.textContent = new Date().toLocaleString();
+    }
+
     // Feature section pool/event "Book" links
     document.getElementById('feature-pool-book')?.addEventListener('click', e => {
         e.preventDefault();
