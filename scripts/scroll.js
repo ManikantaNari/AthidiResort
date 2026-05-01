@@ -61,11 +61,13 @@ export function initScrolls() {
             font-size: 24px;
             cursor: pointer;
             opacity: 0;
+            pointer-events: none;
             transition: opacity 0.3s ease;
             z-index: 1000;
         }
         .scroll-to-top.show {
             opacity: 1;
+            pointer-events: auto;
         }
         .scroll-to-top:hover {
             background-color: var(--secondary);

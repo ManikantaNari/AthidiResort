@@ -48,6 +48,7 @@ nav ul li a:hover {
 }
 
 .hero {
+    position: relative;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -55,7 +56,7 @@ nav ul li a:hover {
     justify-content: center;
     color: white;
     text-align: center;
-    overflow: hidden; /* Prevents overflow issues */
+    overflow: hidden;
 }
 
 /* Transparent Overlay */
@@ -65,8 +66,8 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Adjust transparency here */
-    z-index: -1; /* Places the overlay above the video but below content */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 #heroVideo {
@@ -76,11 +77,13 @@ nav ul li a:hover {
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures video covers the entire section */
-    z-index: -1; /* Moves the video behind the content */
+    object-fit: cover;
+    z-index: 0;
 }
 
 .hero-content {
+    position: relative;
+    z-index: 2;
     max-width: 800px;
     padding: 2rem;
 }

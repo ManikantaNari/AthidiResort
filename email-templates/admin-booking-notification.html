@@ -1,0 +1,123 @@
+<div
+  style="
+    font-family: system-ui, sans-serif, Arial;
+    font-size: 14px;
+    color: #333;
+    padding: 14px 8px;
+    background-color: #f0f9ff;
+  "
+>
+  <div style="max-width: 600px; margin: auto; background-color: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08)">
+
+    <!-- Header -->
+    <div style="background: linear-gradient(135deg, #0e7490, #0c637a); padding: 24px 24px 20px; text-align: center">
+      <div style="font-size: 28px; margin-bottom: 4px">🏨</div>
+      <div style="font-size: 20px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px">
+        Athidhi Resort
+      </div>
+      <div style="font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px">
+        New Booking Alert
+      </div>
+    </div>
+
+    <!-- Booking Type Banner -->
+    <div style="background-color: #f59e0b; padding: 10px 24px; text-align: center">
+      <span style="color: #1e293b; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px">
+        {{booking_type}}
+      </span>
+    </div>
+
+    <!-- Body -->
+    <div style="padding: 24px">
+
+      <!-- Guest Info Card -->
+      <div style="background-color: #f8fafc; border-radius: 10px; padding: 16px; margin-bottom: 16px; border-left: 4px solid #0e7490">
+        <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 8px; font-weight: 600">
+          Guest Details
+        </div>
+        <table style="width: 100%; border-collapse: collapse">
+          <tr>
+            <td style="padding: 6px 0; color: #64748b; width: 90px; vertical-align: top">Name</td>
+            <td style="padding: 6px 0; font-weight: 600; color: #1e293b">{{guest_name}}</td>
+          </tr>
+          <tr>
+            <td style="padding: 6px 0; color: #64748b; vertical-align: top">Phone</td>
+            <td style="padding: 6px 0">
+              <a href="tel:{{guest_phone}}" style="color: #0e7490; text-decoration: none; font-weight: 600">{{guest_phone}}</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 6px 0; color: #64748b; vertical-align: top">Email</td>
+            <td style="padding: 6px 0">
+              <a href="mailto:{{guest_email}}" style="color: #0e7490; text-decoration: none">{{guest_email}}</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Booking Details Card -->
+      <div style="background-color: #f8fafc; border-radius: 10px; padding: 16px; margin-bottom: 16px; border-left: 4px solid #f59e0b">
+        <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 8px; font-weight: 600">
+          Booking Details
+        </div>
+        <table style="width: 100%; border-collapse: collapse">
+          <tr>
+            <td style="padding: 6px 0; color: #64748b; width: 90px; vertical-align: top">Check-in</td>
+            <td style="padding: 6px 0; font-weight: 600; color: #1e293b">{{check_in}}</td>
+          </tr>
+          <tr>
+            <td style="padding: 6px 0; color: #64748b; vertical-align: top">Check-out</td>
+            <td style="padding: 6px 0; font-weight: 600; color: #1e293b">{{check_out}}</td>
+          </tr>
+          <tr>
+            <td style="padding: 6px 0; color: #64748b; vertical-align: top">Guests</td>
+            <td style="padding: 6px 0; color: #1e293b">{{guests}}</td>
+          </tr>
+          <tr>
+            <td style="padding: 6px 0; color: #64748b; vertical-align: top">Room</td>
+            <td style="padding: 6px 0; color: #1e293b">{{room_type}}</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Special Requests -->
+      <div style="background-color: #fffbeb; border-radius: 10px; padding: 16px; margin-bottom: 20px; border-left: 4px solid #f59e0b">
+        <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 6px; font-weight: 600">
+          Special Requests
+        </div>
+        <div style="color: #1e293b; line-height: 1.5">{{special_requests}}</div>
+      </div>
+
+      <!-- Action Button -->
+      <div style="text-align: center; padding: 8px 0 4px">
+        <a
+          href="{{admin_link}}"
+          target="_blank"
+          style="
+            display: inline-block;
+            background: linear-gradient(135deg, #0e7490, #0c637a);
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+          "
+        >
+          Open Admin Panel &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="background-color: #f8fafc; padding: 16px 24px; text-align: center; border-top: 1px solid #e2e8f0">
+      <div style="font-size: 12px; color: #94a3b8">
+        Athidhi Resort &amp; Swimming Pool, Nakrekal, Telangana
+      </div>
+      <div style="font-size: 11px; color: #cbd5e1; margin-top: 4px">
+        This is an automated booking notification
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,59 +1,87 @@
 import { EMAILJS_CONFIG, NTFY_TOPIC, OWNER_EMAIL, RESORT_PHONE } from './config.js';
-import emailjs from 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/+esm';
 
 let emailjsReady = false;
 
 export function initNotifications() {
-    emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
-    emailjsReady = true;
+    if (typeof window.emailjs === 'undefined') {
+        console.error('EmailJS SDK not loaded. Check the <script> tag in HTML.');
+        return;
+    }
+    try {
+        window.emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
+        emailjsReady = true;
+        console.log('EmailJS initialized with public key:', EMAILJS_CONFIG.publicKey);
+    } catch (e) {
+        console.error('EmailJS init failed:', e);
+    }
 }
 
-// Called when a new booking is submitted — notifies admin
 export async function notifyAdminNewBooking(booking) {
     const msg = [
-        `🏨 New ${booking.type} Booking`,
-        `👤 ${booking.name}`,
-        `📞 ${booking.phone}`,
-        `📅 Check-in: ${booking.checkIn}`,
-        booking.checkOut ? `📅 Check-out: ${booking.checkOut}` : '',
-        booking.guests ? `👥 Guests: ${booking.guests}` : '',
-        booking.roomType ? `🛏 Room: ${booking.roomType}` : '',
-        booking.specialRequests ? `💬 Note: ${booking.specialRequests}` : ''
+        `New ${booking.type} Booking`,
+        `${booking.name}`,
+        `${booking.phone}`,
+        `Check-in: ${booking.checkIn}`,
+        booking.checkOut ? `Check-out: ${booking.checkOut}` : '',
+        booking.guests ? `Guests: ${booking.guests}` : '',
+        booking.roomType ? `Room: ${booking.roomType}` : '',
+        booking.specialRequests ? `Note: ${booking.specialRequests}` : ''
     ].filter(Boolean).join('\n');
 
-    // ntfy.sh — free push notification to admin's phone
-    await fetch(`https://ntfy.sh/${NTFY_TOPIC}`, {
+    fetch(`https://ntfy.sh/${NTFY_TOPIC}`, {
         method: 'POST',
         body: msg,
         headers: {
-            'Title': '🏨 New Booking — Athidhi Resort',
+            'Title': 'New Booking - Athidhi Resort',
             'Priority': 'high',
             'Tags': 'hotel,tada'
         }
     }).catch(e => console.warn('ntfy failed:', e));
 
-    // EmailJS — email to admin as backup with link to admin panel
-    if (emailjsReady && booking.adminLink) {
-        emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.bookingTemplateId, {
-            to_email: OWNER_EMAIL,
-            guest_name: booking.name,
-            guest_email: booking.email,
-            guest_phone: booking.phone,
-            booking_type: booking.type,
-            check_in: booking.checkIn,
-            check_out: booking.checkOut || 'N/A',
-            guests: booking.guests || 'N/A',
-            room_type: booking.roomType || 'N/A',
-            special_requests: booking.specialRequests || 'None',
-            admin_link: booking.adminLink
-        }).catch(e => console.warn('Admin email failed:', e));
+    if (!emailjsReady) {
+        console.warn('EmailJS not ready, skipping admin email');
+        return;
+    }
+
+    const templateParams = {
+        to_email: OWNER_EMAIL,
+        guest_name: booking.name,
+        guest_email: booking.email,
+        guest_phone: booking.phone,
+        booking_type: booking.type,
+        check_in: booking.checkIn,
+        check_out: booking.checkOut || 'N/A',
+        guests: booking.guests || 'N/A',
+        room_type: booking.roomType || 'N/A',
+        special_requests: booking.specialRequests || 'None',
+        admin_link: booking.adminLink || ''
+    };
+
+    console.log('Sending admin email with params:', JSON.stringify(templateParams, null, 2));
+
+    try {
+        const result = await window.emailjs.send(
+            EMAILJS_CONFIG.serviceId,
+            EMAILJS_CONFIG.bookingTemplateId,
+            templateParams
+        );
+        console.log('Admin email sent:', result.status, result.text);
+    } catch (e) {
+        console.error('Admin email FAILED:', e);
     }
 }
 
-// Called when admin confirms a booking — notifies guest
 export async function notifyGuestConfirmation(booking) {
-    if (!emailjsReady || !booking.email) return;
-    emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.guestConfirmTemplateId, {
+    if (!emailjsReady) {
+        console.warn('EmailJS not ready, skipping guest confirmation email');
+        return;
+    }
+    if (!booking.email) {
+        console.warn('No guest email, skipping confirmation');
+        return;
+    }
+
+    const templateParams = {
         to_email: booking.email,
         guest_name: booking.name,
         booking_type: booking.type,
@@ -61,5 +89,18 @@ export async function notifyGuestConfirmation(booking) {
         check_out: booking.checkOut || 'N/A',
         price: booking.price ? `₹${booking.price}` : 'To be advised',
         admin_phone: RESORT_PHONE
-    }).catch(e => console.warn('Guest confirmation email failed:', e));
+    };
+
+    console.log('Sending guest confirmation with params:', JSON.stringify(templateParams, null, 2));
+
+    try {
+        const result = await window.emailjs.send(
+            EMAILJS_CONFIG.serviceId,
+            EMAILJS_CONFIG.guestConfirmTemplateId,
+            templateParams
+        );
+        console.log('Guest confirmation email sent:', result.status, result.text);
+    } catch (e) {
+        console.error('Guest confirmation email FAILED:', e);
+    }
 }

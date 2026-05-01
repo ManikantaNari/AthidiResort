@@ -1,10 +1,6 @@
 import { db, collection, addDoc, serverTimestamp } from './firebase.js';
-import { EMAILJS_CONFIG, OWNER_EMAIL } from './config.js';
-import emailjs from 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/+esm';
 
 export function initFormInteractions() {
-    emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
-
     const contactForm = document.querySelector('.contact-form form');
     const newsletterForm = document.querySelector('footer form');
 
@@ -72,17 +68,6 @@ export function initFormInteractions() {
                     read: false,
                     createdAt: serverTimestamp()
                 });
-
-                // Send email notification via EmailJS
-                if (EMAILJS_CONFIG.serviceId && EMAILJS_CONFIG.contactTemplateId) {
-                    emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.contactTemplateId, {
-                        to_email: OWNER_EMAIL,
-                        from_name: name,
-                        from_email: email,
-                        subject,
-                        message
-                    }).catch(err => console.warn('Contact email notification skipped:', err));
-                }
 
                 showMessage(contactForm, 'Thank you! We will get back to you within 24 hours.');
                 contactForm.reset();
